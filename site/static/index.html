@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Feedback</h2>
+    <form action="/api/feedback" method="post">
+        <input type="text" name="domain" placeholder="website name"><br/>
+        <label for="bias">Bias:</label> <input type="range" min="-1" max="1" value="0" step="0.1" name="bias"><br/>
+        <label for="reliability">Reliability:</label> <input type="range" min="-1" max="1" value="0" step="0.1" name="reliability"><br/>
+        <input type="submit" value="Submit Feedback!">
+    </form>
+    <br/><br/>
+    <h2>Lookup</h2>
+    <form action="/api/lookup" method="get">
+        <input type="text" name="domain" placeholder="website name"><br/>
+        <input type="submit" value="Lookup">
+    </form>
+</body>
+</html>
