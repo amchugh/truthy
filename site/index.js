@@ -15,6 +15,8 @@ if (!exists) {
     createdb(db)
 }
 
+// hahahahah
+
 const app = express();
 const port = 8000
 
