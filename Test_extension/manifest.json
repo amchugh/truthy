@@ -1,11 +1,8 @@
 {
-    "name": "Nashwan's example",
-    "description": "Learning to make a chrome extension",
+    "name": "Angle",
+    "description": "News Bias and Reliability Assesor",
     "version": "1.0",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-      },
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
         "default_popup": "popup.html",
