@@ -20,7 +20,7 @@ var failed_message = `
 <p>Failed to fetch data for this website. Please try again later.</p>
 `
 
-const API_ADDRESS = "http://localhost:8000/api/"
+const API_ADDRESS = "http://newsangle.tech/api/"
 var changed = false;
 
 // See if this domain is in the list of showable domains
