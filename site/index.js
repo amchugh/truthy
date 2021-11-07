@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 const sqlite3 = require('sqlite3').verbose() // todo:: remove verbose
 const fs = require('fs')
@@ -38,7 +39,7 @@ const empty_entry = {
     "reliability": 0.0
 }
 
-app.get('/api/lookup', function (req, res) {
+app.get('/api/lookup', cors(), function (req, res) {
     if (!req.query.domain) {
         console.warn("Bad /api/lookup request (no domain query)")
         res.status(400).end()
@@ -55,10 +56,14 @@ app.get('/api/lookup', function (req, res) {
         }
         if (row) {
             console.debug("Found row for domain", req.query.domain, row);
+            res.setHeader("Content-Type", "application/json")
             res.json(row);
         } else {
             console.debug("Could not find row for domain", req.query.domain);
-            on_domain_lookup_fail(req.query.domain)
+            // We don't actually want to create this row. This domain
+            // might not make sense to have an entry.
+            // on_domain_lookup_fail(req.query.domain)
+            res.setHeader("Content-Type", "application/json")
             res.json(empty_entry);
         }
     })
@@ -74,7 +79,7 @@ var update_rating = function(domain, bias, reliability) {
 
 const feedback_weight = 0.1
 
-app.post('/api/feedback', urlencodedParser, function (req, res) {
+app.post('/api/feedback', cors(), urlencodedParser, function (req, res) {
     if (!req.body.domain || !req.body.bias || !req.body.reliability) {
         console.warn("Bad /api/feedback request (missing queries)")
         res.status(400).end()

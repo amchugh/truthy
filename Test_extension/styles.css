@@ -1,0 +1,170 @@
+/* latin-ext */
+
+@font-face {
+    font-family: 'Mohave';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/mohave/v2/7cHpv4ksjJunKqM_Ass5ynghnQci.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+    font-family: 'Mohave';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/mohave/v2/7cHpv4ksjJunKqM_DMs5ynghnQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+
+@font-face {
+    font-family: 'Mohave';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/mohave/v2/7cHpv4ksjJunKqM_Ass5ynghnQci.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+    font-family: 'Mohave';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/mohave/v2/7cHpv4ksjJunKqM_DMs5ynghnQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    --main-color: #f00;
+    --mild-color: #000;
+    --secondary-color: #0f0;
+    --background-color: #fff;
+}
+
+.angle-popup {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    max-width: 380px;
+    box-sizing: content-box;
+    padding: 10px;
+    padding-top: 20px;
+    z-index: 9999;
+    color: var(--mild-color);
+    background-color: var(--background-color);
+    border-radius: 18px;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-family: 'Mohave', 'Courier New', Courier, monospace;
+}
+
+.angle-content {
+    width: 100%;
+    height: max-content;
+}
+
+#angle-stop {
+    display: block;
+    width: 100%;
+    margin-top: 160px;
+    bottom: 0;
+    background-color: var(--main-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 2px;
+    padding: 8px 4px;
+    transition: 0.2s filter;
+    font-family: 'Mohave', 'Courier New', Courier, monospace;
+}
+
+#angle-stop:hover {
+    transition: 0.2s filter;
+    filter: brightness(85%);
+}
+
+#angle-domain {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+hr {
+    margin-top: 4px;
+}
+
+#angle-close {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+    margin: 0;
+}
+
+#angle-close::after {
+    content: "\00d7";
+}
+
+.angle-section-title {
+    font-weight: 900;
+}
+
+.angle-slider {
+    width: 100%;
+}
+
+/* Thank you Loading.io */
+
+.angle-loading-container {
+    margin: 24px auto 0;
+    width: fit-content;
+}
+
+.angle-lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.angle-lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid var(--main-color);
+    border-radius: 50%;
+    animation: angle-lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--main-color) transparent transparent transparent;
+}
+
+.angle-lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.angle-lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.angle-lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes angle-lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
