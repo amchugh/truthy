@@ -43,10 +43,12 @@
 }
 
 * {
-    --main-color: #f00;
-    --mild-color: #000;
-    --secondary-color: #0f0;
-    --background-color: #fff;
+    --main-color: rgb(187, 57, 219);
+    --mild-color: rgb(22, 22, 22);
+    --secondary-color: rgb(107, 37, 134);
+    --background-color: rgb(250, 239, 253);
+    --death-color: rgb(187, 167, 182);
+    --border-rad: 12px;
 }
 
 .angle-popup {
@@ -60,8 +62,14 @@
     z-index: 9999;
     color: var(--mild-color);
     background-color: var(--background-color);
-    border-radius: 18px;
+    border-radius: var(--border-rad);
     box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-family: 'Mohave', 'Courier New', Courier, monospace;
+    line-height: 1;
+}
+
+.angle-button {
     font-size: 16px;
     font-family: 'Mohave', 'Courier New', Courier, monospace;
 }
@@ -74,12 +82,12 @@
 #angle-stop {
     display: block;
     width: 100%;
-    margin-top: 160px;
+    margin-top: 40px;
     bottom: 0;
     background-color: var(--main-color);
     color: var(--background-color);
     border: none;
-    border-radius: 2px;
+    border-radius: var(--border-rad);
     padding: 8px 4px;
     transition: 0.2s filter;
     font-family: 'Mohave', 'Courier New', Courier, monospace;
@@ -90,9 +98,35 @@
     filter: brightness(85%);
 }
 
+#angle-submit {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    background-color: var(--death-color);
+    color: var(--background-color);
+    border-radius: var(--border-rad);
+    padding: 8px 4px;
+    font-family: 'Mohave', 'Courier New', Courier, monospace;
+    border: none;
+    cursor: inherit;
+}
+
+#angle-submit.angle-submit-enabled{
+    background-color: var(--main-color);
+    color: var(--background-color);
+    transition: 0.2s filter;
+    cursor: pointer;
+}
+
+#angle-submit.angle-submit-enabled:hover {
+    transition: 0.2s filter;
+    filter: brightness(85%);
+}
+
 #angle-domain {
     margin-right: 20px;
     font-size: 20px;
+    font-weight: 600;
 }
 
 hr {
@@ -167,4 +201,46 @@ hr {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.angle-slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: var(--border-rad);
+}
+
+#bias-slider {
+    background: linear-gradient(to right, rgb(236, 15, 63) 10%, rgb(153, 38, 168) 50%, rgb(33, 29, 238) 90%);
+}
+#reliability-slider {
+    background: linear-gradient(to right, rgb(196, 192, 192) 40%, #0f0 90%);
+}
+
+.angle-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 10px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    border-radius: var(--border-rad);
+    border: 2px solid #050e0a;
+    background-color: #eee;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
 }

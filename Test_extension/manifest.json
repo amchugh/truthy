@@ -1,7 +1,7 @@
 {
     "name": "Angle",
     "description": "News Bias and Reliability Assesor",
-    "version": "1.0",
+    "version": "0.1.0",
     "manifest_version": 3,
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
@@ -13,5 +13,19 @@
     "icons": {
         "128": "/Angle_Logo_Icon.png"
       },
-    "options_page": "options.html"
+    "options_page": "options.html",
+    "content_scripts": [
+      {
+        "css": [
+          "styles.css"
+        ],
+        "js": [
+          "jquery.min.js",
+          "content.js"
+        ],
+        "matches": [
+          "*://*/*"
+        ]
+      }
+    ]
   }
