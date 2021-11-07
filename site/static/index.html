@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
 </head>
+
 <body>
-    <h2>Feedback</h2>
-    <form action="/api/feedback" method="post">
-        <input type="text" name="domain" placeholder="website name"><br/>
-        <label for="bias">Bias:</label> <input type="range" min="-1" max="1" value="0" step="0.1" name="bias"><br/>
-        <label for="reliability">Reliability:</label> <input type="range" min="-1" max="1" value="0" step="0.1" name="reliability"><br/>
-        <input type="submit" value="Submit Feedback!">
-    </form>
-    <br/><br/>
-    <h2>Lookup</h2>
-    <form action="/api/lookup" method="get">
-        <input type="text" name="domain" placeholder="website name"><br/>
-        <input type="submit" value="Lookup">
-    </form>
+    <div class="about">
+        <h1 id="topAbout" style="text-align: left">About <img src="/Users/dmv62/Documents/GitHub/truthy/Test_extension/Angle_Logo_Icon.png" width="80" height="80"></h1>
+        <p>Our product is a Google Chrome Extension that determines the political leanings and reliability of a website
+            based on
+            research data and community input.</p>
+        <h2 id="names" style="text-align: left;">The Team</h2>
+        <div class="row">
+            <div class="column">
+                <div class="img-with-text">
+                    <img src="/Users/dmv62/Documents/GitHub/truthy/Test_extension/images/get_started128.png"
+                        alt="Image" />
+                    <p>Aiden</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="img-with-text">
+                    <img src="yourimage.jpg" alt="Image" />
+                    <p>Avery</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="img-with-text">
+                    <img src="yourimage.jpg" alt="Image" />
+                    <p>Nashwan</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="img-with-text">
+                    <img src="yourimage.jpg" alt="Image" />
+                    <p>David</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </body>
+
 </html>

@@ -20,14 +20,26 @@ var failed_message = `
 <p>Failed to fetch data for this website. Please try again later.</p>
 `
 
-const API_ADDRESS = "http://newsangle.tech/api/"
+const API_ADDRESS = "http://www.newsangle.tech/api/"
 var changed = false;
+
+function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 // See if this domain is in the list of showable domains
 const domain = window.location.hostname || "my.example.com"
 var deny = localStorage.getItem('angle-deny') || false;
 if (!deny) {
-    show_popup()
+    if (!containsObject(domain, deny_list)) show_popup()
+    else console.log("Denied site site")
 } else {
     console.log("Not displaying for this domain")
 }
@@ -56,7 +68,7 @@ function submit_feedback() {
     bias = $('#bias-slider').val()
     rel = $('#reliability-slider').val()
     var addr = encodeURI(`${API_ADDRESS}feedback?domain=${domain}&bias=${bias}&reliability=${rel}`)
-    fetch(addr, {method: 'POST'}).then(res => {
+    fetch(addr, { method: 'POST' }).then(res => {
         if (res.status != 202) alert("Failed to send score")
         else {
             $('.angle-content').append($('<div></div>').text("Thank you for your feedback."))
@@ -79,13 +91,13 @@ function set_labels(bias, rel) {
     else if (bias < -lowcutoff) biastext = "Often Right-leaning"
     else if (bias <= lowcutoff) biastext = "Often Mixed"
     else if (bias <= highcutoff) biastext = "Often Left-leaning"
-    else  biastext = "Often Left"
+    else biastext = "Often Left"
 
     if (rel < -highcutoff) reltext = "Unreliable"
     else if (rel < -lowcutoff) reltext = "Often unreliable"
     else if (rel <= lowcutoff) reltext = "Mixed"
     else if (rel <= highcutoff) reltext = "Often reliable"
-    else  reltext = "Reliable"
+    else reltext = "Reliable"
 
     $('#bias-rating').text(biastext)
     $('#reliability-rating').text(reltext)
@@ -134,3 +146,104 @@ function show_popup() {
     }, 2300)
 }
 
+
+deny_list = ["www.google.com",
+    "www.youtube.com",
+    "www.facebook.com",
+    "twitter.com",
+    "www.wikipedia.org",
+    "www.instagram.com",
+    "www.yahoo.com",
+    "www.whatsapp.com",
+    "www.amazon.com",
+    "zoom.us",
+    "outlook.live.com",
+    "www.netflix.com",
+    "vk.com",
+    "www.reddit.com",
+    "www.office.com",
+    "www.naver.com",
+    "www.pinterest.com",
+    "discord.com",
+    "www.linkedin.com",
+    "www.microsoft.com",
+    "mail.ru",
+    "www.bing.com",
+    "www.twitch.tv",
+    "www.ebay.com",
+    "duckduckgo.com",
+    "www.walmart.com",
+    "www.tiktok.com",
+    "www.paypal.com",
+    "www.fandom.com",
+    "maps.google.com",
+    "docs.google.com",
+    "gmail.google.com",
+    "www.tumblr.com",
+    "www.canva.com",
+    "www.espn.com",
+    "www.instructure.com",
+    "www.msn.com",
+    "weather.com",
+    "worldstarhiphop.com",
+    "www.zillow.com",
+    "www.roblox.com",
+    "www.etsy.com",
+    "www.indeed.com",
+    "www.usps.com",
+    "www.hulu.com",
+    "www.t-mobile.com",
+    "www.target.com",
+    "www.homedepot.com",
+    "www.cvs.com",
+    "www.apple.com",
+    "www.ford.com",
+    "www.subaru.com",
+    "www.honda.com",
+    "www.toyota.com",
+    "www.fedex.com",
+    "www.chase.com",
+    "www.verizon.com",
+    "www.bankofamerica.com",
+    "www.xfinity.com",
+    "www.dell.com",
+    "www.bestbuy.com",
+    "www.statefarm.com",
+    "www.intel.com",
+    "www.nvidia.com",
+    "www.amd.com",
+    "www.lowes.com",
+    "www.pepsi.com",
+    "us.coca-cola.com",
+    "www.xvideos.com",
+    "www.disney.com",
+    "www.disneyplus.com",
+    "sysco.com",
+    "www.nike.com",
+    "www.adidas.com",
+    "www.underarmour.com",
+    "www.footlocker.com",
+    "www.kohls.com",
+    "www.carmax.com",
+    "www.nordstrom.com",
+    "www.ti.com",
+    "www.uber.com",
+    "www.lyft.com",
+    "www.abcmouse.com",
+    "www.autozone.com",
+    "www.officedepot.com",
+    "www.eversource.com",
+    "www.jetblue.com",
+    "www.southwest.com",
+    "www.expedia.com",
+    "www.tripadvisor.com",
+    "www.trivago.com",
+    "www.amtrak.com",
+    "www.burlington.com",
+    "cloud.google.com",
+    "www.wolframalpha.com",
+    "stackoverflow.com",
+    "www.google.com",
+    "www.symbolab.com",
+    "earth.google.com",
+    "code.visualstudio.com"]
